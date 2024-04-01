@@ -1,3 +1,9 @@
-.main{
-    color: red;
+.task_Completed{
+    color: rgb(7, 214, 149);
+}
+.task_Working{
+    color: rgb(231, 217, 18);
+}
+.task_Not_Completed{
+    color: rgb(255, 96, 96);
 }

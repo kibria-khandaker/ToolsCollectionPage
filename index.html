@@ -1,83 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>URL Collector</title>
-</head>
-<body>
-<h1>URL Collector</h1>
-<label for="websiteUrl">Enter Main Website URL:</label>
-<input type="text" id="websiteUrl" placeholder="https://example.com">
-<button onclick="collectUrls()">Collect URLs</button>
-<h2>Collected URLs:</h2>
-<ul id="urlList"></ul>
-<textarea id="urlTextArea" rows="10" cols="50" readonly></textarea>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Collection : Golam Kibria (a web developer)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<script>
-function collectUrls() {
-    var websiteUrlInput = document.getElementById('websiteUrl');
-    var websiteUrl = websiteUrlInput.value.trim();
-
-    // Check if the URL is missing the protocol, prepend 'http://' if so
-    if (!websiteUrl.startsWith('http://') && !websiteUrl.startsWith('https://')) {
-        websiteUrl = 'http://' + websiteUrl;
-    }
-
-    // Send a request to fetch the HTML content of the main website
-    fetch(websiteUrl)
-    .then(response => response.text())
-    .then(html => {
-        // Create a temporary element to parse the HTML content
-        var tempElement = document.createElement('div');
-        tempElement.innerHTML = html;
-
-        // Find all anchor (a) tags
-        var anchorTags = tempElement.querySelectorAll('a');
-        
-        // Extract all internal URLs (links to pages within the same domain)
-        var urls = [];
-        anchorTags.forEach(function(anchorTag) {
-            var url = anchorTag.getAttribute('href');
-            if (url && url.trim() !== '' && isInternalUrl(url, websiteUrl)) {
-                urls.push(new URL(url, websiteUrl).href); // Resolve relative URLs
-            }
-        });
-
-        // Display collected URLs in the list and textarea
-        displayUrls(urls, websiteUrl);
-    })
-    .catch(error => {
-        console.error('Error fetching website:', error);
-    });
-}
-
-function isInternalUrl(url, mainUrl) {
-    // Check if the URL is within the same domain as the main URL
-    var mainDomain = new URL(mainUrl).hostname;
-    var urlDomain = new URL(url, mainUrl).hostname;
-    return mainDomain === urlDomain;
-}
-
-function displayUrls(urls, mainUrl) {
-    var urlList = document.getElementById('urlList');
-    var urlTextArea = document.getElementById('urlTextArea');
-    
-    // Clear previous content
-    urlList.innerHTML = '';
-    urlTextArea.value = '';
-
-    // Add URLs to the list and textarea
-    urls.forEach(function(url) {
-        var listItem = document.createElement('li');
-        listItem.textContent = url;
-        urlList.appendChild(listItem);
-
-        // Append URL with main domain to the textarea with a newline
-        var domain = new URL(mainUrl).hostname;
-        urlTextArea.value += "site:" + domain + url + '\n';
-    });
-}
-</script>
-</body>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <div>
+      <div>
+        <h1 class="text-3xl flex justify-center pt-12 text-green-400">
+          My Task Collection List
+          <span class="relative flex h-3 w-3">
+            <span
+              class="animate-ping absolute top-1 right-8 inline-flex h-full w-full rounded-full bg-red-500 opacity-80"
+            ></span>
+            <span
+              class="relative inline-flex top-1 right-8 rounded-full h-3 w-3 bg-red-500"
+            ></span>
+          </span>
+        </h1>
+        <p class="text-center text-green-500 pt-1 pb-8">Will complete all tasks serially day by day </p>
+      </div>
+      <!-- ====== Table Section Start -->
+      <div class="max-w-full px-4 overflow-x-auto">
+        <table class="w-full table-auto">
+          <thead>
+            <tr class="text-center bg-green-400">
+              <th
+                class="w-1/6 min-w-[160px] border-l border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+              >
+                Title
+              </th>
+              <th
+                class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+              >
+                Description
+              </th>
+              <th
+                class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+              >
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- single 1 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+              <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                My Youtube Video Player
+              </td>
+              <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+              </td>
+              <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                <a href="javascript:void(0)" class="bg-green-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                  Done
+                </a>
+              </td>
+            </tr>
+            <!-- single 1 wor end  -->
+            <!-- single 2 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    Simple BMI Calculator
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-green-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                    Done
+                    </a>
+                </td>
+                </tr>
+            <!-- single 2 wor end  -->
+            <!-- single 3 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    Income Remaining Calculator
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-green-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                    Done
+                    </a>
+                </td>
+                </tr>
+            <!-- single 3 wor end  -->
+            <!-- single 4 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    Website URL Scraping or collection automatically.
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-yellow-500 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                    On Going
+                    </a>
+                </td>
+                </tr>
+            <!-- single 4 wor end  -->
+            <!-- single 5 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    A Common Calculator 
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-red-500 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                        Not Start
+                    </a>
+                </td>
+                </tr>
+            <!-- single 5 wor end  -->
+            <!-- single 6 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    Mobile company minutes / internet cost calculation
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-red-500 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                        Not Start
+                    </a>
+                </td>
+                </tr>
+            <!-- single 6 wor end  -->
+          </tbody>
+        </table>
+      </div>
+      <!-- ====== Table Section End -->
+    </div>
+  </body>
 </html>
