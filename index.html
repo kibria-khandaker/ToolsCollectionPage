@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URL Collector</title>
+</head>
+<body>
+<h1>URL Collector</h1>
+<label for="websiteUrl">Enter Main Website URL:</label>
+<input type="text" id="websiteUrl" placeholder="https://example.com">
+<button onclick="collectUrls()">Collect URLs</button>
+<h2>Collected URLs:</h2>
+<ul id="urlList"></ul>
+<textarea id="urlTextArea" rows="10" cols="50" readonly></textarea>
+
+<script>
+function collectUrls() {
+    var websiteUrlInput = document.getElementById('websiteUrl');
+    var websiteUrl = websiteUrlInput.value.trim();
+
+    // Check if the URL is missing the protocol, prepend 'http://' if so
+    if (!websiteUrl.startsWith('http://') && !websiteUrl.startsWith('https://')) {
+        websiteUrl = 'http://' + websiteUrl;
+    }
+
+    // Send a request to fetch the HTML content of the main website
+    fetch(websiteUrl)
+    .then(response => response.text())
+    .then(html => {
+        // Create a temporary element to parse the HTML content
+        var tempElement = document.createElement('div');
+        tempElement.innerHTML = html;
+
+        // Find all anchor (a) tags
+        var anchorTags = tempElement.querySelectorAll('a');
+        
+        // Extract all internal URLs (links to pages within the same domain)
+        var urls = [];
+        anchorTags.forEach(function(anchorTag) {
+            var url = anchorTag.getAttribute('href');
+            if (url && url.trim() !== '' && isInternalUrl(url, websiteUrl)) {
+                urls.push(new URL(url, websiteUrl).href); // Resolve relative URLs
+            }
+        });
+
+        // Display collected URLs in the list and textarea
+        displayUrls(urls);
+    })
+    .catch(error => {
+        console.error('Error fetching website:', error);
+    });
+}
+
+function isInternalUrl(url, mainUrl) {
+    // Check if the URL is within the same domain as the main URL
+    var mainDomain = new URL(mainUrl).hostname;
+    var urlDomain = new URL(url, mainUrl).hostname;
+    return mainDomain === urlDomain;
+}
+
+function displayUrls(urls) {
+    var urlList = document.getElementById('urlList');
+    var urlTextArea = document.getElementById('urlTextArea');
+    
+    // Clear previous content
+    urlList.innerHTML = '';
+    urlTextArea.value = '';
+
+    // Add URLs to the list and textarea
+    urls.forEach(function(url) {
+        var listItem = document.createElement('li');
+        listItem.textContent = url;
+        urlList.appendChild(listItem);
+
+        // Append URL to the textarea with a newline
+        urlTextArea.value += url + '\n';
+    });
+}
+</script>
+</body>
+</html>
