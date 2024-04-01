@@ -45,7 +45,7 @@ function collectUrls() {
         });
 
         // Display collected URLs in the list and textarea
-        displayUrls(urls);
+        displayUrls(urls, websiteUrl);
     })
     .catch(error => {
         console.error('Error fetching website:', error);
@@ -59,7 +59,7 @@ function isInternalUrl(url, mainUrl) {
     return mainDomain === urlDomain;
 }
 
-function displayUrls(urls) {
+function displayUrls(urls, mainUrl) {
     var urlList = document.getElementById('urlList');
     var urlTextArea = document.getElementById('urlTextArea');
     
@@ -73,8 +73,9 @@ function displayUrls(urls) {
         listItem.textContent = url;
         urlList.appendChild(listItem);
 
-        // Append URL to the textarea with a newline
-        urlTextArea.value += url + '\n';
+        // Append URL with main domain to the textarea with a newline
+        var domain = new URL(mainUrl).hostname;
+        urlTextArea.value += "site:" + domain + url + '\n';
     });
 }
 </script>
