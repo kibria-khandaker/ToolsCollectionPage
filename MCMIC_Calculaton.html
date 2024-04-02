@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile Minute Calculation</title>
+    <style>
+        .result-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,6 +26,16 @@
 <input type="number" id="taka" name="taka"><br><br>
 
 <button onclick="calculate()">Calculate</button>
+
+<div class="result-box" id="maxResultBox">
+    <h2>Maximum Result</h2>
+    <p id="maxResult"></p>
+</div>
+
+<div class="result-box" id="minResultBox">
+    <h2>Minimum Result</h2>
+    <p id="minResult"></p>
+</div>
 
 <ul id="results"></ul>
 
@@ -38,6 +55,22 @@
         var listItem = document.createElement("li");
         listItem.textContent = "Result: " + result + "/= taka";
         document.getElementById("results").appendChild(listItem);
+        
+        // Update maximum and minimum results
+        var maxResult = parseFloat(document.getElementById("maxResult").textContent || 0);
+        var minResult = parseFloat(document.getElementById("minResult").textContent || Number.MAX_VALUE);
+        
+        if (parseFloat(result) > maxResult) {
+            document.getElementById("maxResult").textContent = result;
+        }
+        
+        if (parseFloat(result) < minResult) {
+            document.getElementById("minResult").textContent = result;
+        }
+        
+        // Show maximum and minimum results in a box
+        document.getElementById("maxResultBox").style.display = "block";
+        document.getElementById("minResultBox").style.display = "block";
     }
 </script>
 
