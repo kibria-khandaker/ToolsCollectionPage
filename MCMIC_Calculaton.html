@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Minute Calculation</title>
+</head>
+<body>
+
+<h1>Mobile Minute Calculation</h1>
+
+<label for="minuit">Minutes:</label>
+<input type="number" id="minuit" name="minuit"><br><br>
+
+<label for="day">Days:</label>
+<input type="number" id="day" name="day"><br><br>
+
+<label for="taka">Taka:</label>
+<input type="number" id="taka" name="taka"><br><br>
+
+<button onclick="calculate()">Calculate</button>
+
+<ul id="results"></ul>
+
+<script>
+    function mobileMinuteCalculate(minuit, day, taka) {
+        var PackRate = taka / minuit;
+        return PackRate.toFixed(3);
+    }
+
+    function calculate() {
+        var minuit = parseInt(document.getElementById("minuit").value);
+        var day = parseInt(document.getElementById("day").value);
+        var taka = parseInt(document.getElementById("taka").value);
+        
+        var result = mobileMinuteCalculate(minuit, day, taka);
+        
+        var listItem = document.createElement("li");
+        listItem.textContent = "Result: " + result + "/= taka";
+        document.getElementById("results").appendChild(listItem);
+    }
+</script>
+
+</body>
+</html>
