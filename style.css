@@ -9,4 +9,16 @@
 }
 
 
-/* Mobile company minutes internet cost calculation */
+/* Mobile company minutes & internet cost calculation Button Css */
+.calculator-box, .internet-cost-box {
+    /* display: none; */
+}
+
+.result-box {
+    /* display: none; */
+    border: 1px solid #727272;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
