@@ -46,7 +46,7 @@ function resetSmsMobile() {
     document.getElementById("minSmsResult").textContent = "";
     document.getElementById("maxSmsResultBox").style.display = "none";
     document.getElementById("minSmsResultBox").style.display = "none";
-    document.getElementById("SmsSmsResults").innerHTML = "";
+    document.getElementById("mobileSmsResults").innerHTML = "";
 }
 
 // Toggle function for Mobile Minuit Cost button
