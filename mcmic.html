@@ -89,6 +89,88 @@
     </div>
     <!-- Mobile Minuit cost area end  -->
 
+
+    <!-- Mobile SMS cost area start ---------------------------------------------- -->
+
+    <div class="border-0 p-3 border-green-500">
+      <!-- Mobile SMS Cost Main Box Show/Close or Toggle btn -->
+      <!-- <button class="bg-amber-500 text-white p-2 m-2 rounded" onclick="toggleCalculator()"> Mobile SMS Cost </button> -->
+      <button
+        class="text-white py-2 px-3 rounded-md bg-green-500 hover:bg-black calculator-toggle-sms-button"
+        onclick="toggleSmsCalculator()"
+      >
+        Mobile SMS Cost open
+      </button>
+      <!-- Mobile SMS Cost calculate & result area -->
+      <div class="calculator-sms-box" id="smsCalculator">
+        <div
+          class="bg-green-400 rounded-md px-2 py-5 mt-1 mb-8 flex flex-col md:flex-row justify-center gap-6"
+        >
+          <!-- Mobile SMS Cost input field area -->
+          <div class="mobile_SMS_cost_input_field w-ful md:w-1/4">
+            <div class="w-full flex flex-col gap-2 md:gap-6">
+              <label class="flex flex-col w-full" for="mobileSms"
+                >Minutes:
+                <input
+                  class="rounded focus:outline-none px-2 py-1"
+                  type="number"
+                  id="mobileSms"
+                  name="mobileSms"
+                />
+              </label>
+              <label class="flex flex-col w-full" for="smsTaka"
+                >Taka:
+                <input
+                  class="rounded focus:outline-none px-2 py-1"
+                  type="number"
+                  id="smsTaka"
+                  name="smsTaka"
+                />
+              </label>
+            </div>
+            <!-- Mobile SMS Cost input's value calculate btn -->
+            <div class="mobile_SMS_cost_calculate_btn flex justify-between">
+              <button
+                class="bg-slate-900 hover:bg-slate-700 text-white py-2 px-4 my-5 rounded"
+                onclick="calculateSmsMobile()"
+              >
+                Calculate
+              </button>
+              <button
+                class="bg-red-600 hover:bg-red-500 text-white py-2 px-4 my-5 rounded"
+                onclick="resetSmsMobile()"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+          <!-- Mobile SMS Cost result area -->
+          <div class="mobile_SMS_cost_result_box w-ful md:w-2/4 py-6">
+            <div class="flex justify-between gap-6">
+              <div class="result-box text-center" id="maxSmsResultBox">
+                <h2>প্রতি SMS এর দাম সর্বোচ্চ পাওয়া যাচ্ছে</h2>
+                <p class="border-2 border-red-500" id="maxSmsResult"></p>
+              </div>
+              <div class="result-box text-center" id="minSmsResultBox">
+                <h2>প্রতি SMS এর দাম সর্বনিম্ন পাওয়া যাচ্ছে</h2>
+                <p class="border-2 border-green-600" id="minSmsResult"></p>
+              </div>
+            </div>
+            <ul
+              class="inputed_all_result_list_box py-6"
+              id="mobileSmsResults"
+            ></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Mobile SMS cost area end  -->
+
+
     <!-- Mobile Internet cost area start  ------------------------------------------- -->
     <div class="border-0 p-3 border-red-500">
       <!-- Mobile Internet Cost Main Box Show/Close or Toggle btn -->
@@ -185,6 +267,13 @@
       </div>
     </div>
     <!-- Mobile Internet cost area end  -->
+
+
+
+
+    <script src="mobileMinuit.js"></script>
+    <script src="mobileInternet.js"></script>
+    <script src="mobileSms.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

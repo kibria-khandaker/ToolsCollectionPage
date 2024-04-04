@@ -10,10 +10,9 @@
 
 
 /* Mobile company minutes & internet cost calculation Button Css */
-.calculator-box, .internet-cost-box {
+.calculator-box, .calculator-sms-box, .internet-cost-box {
     display: none;
 }
-
 .result-box {
     display: none;
     border: 0px solid #727272;
@@ -21,11 +20,11 @@
     border-radius: 4px;
     font-size: 11px;
 }
-.calculator-box h2, .internet-cost-box h2{
+
+.calculator-box h2, .calculator-sms-box h2, .internet-cost-box h2{
     color: #fff;
 }
-
-.calculator-box p, .internet-cost-box p{
+.calculator-box p, .calculator-sms-box p, .internet-cost-box p{
     padding: 0px;
     border-radius: 4px;
     font-size: 12px;
