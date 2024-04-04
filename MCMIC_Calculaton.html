@@ -11,93 +11,180 @@
   <body>
     <h1 class="text-3xl text-center pt-10 pb-5">Calculator</h1>
 
-    <!-- Mobile Minuit cost area start  -->
-    <div class="border-0 border-amber-500">
+    <!-- Mobile Minuit cost area start ---------------------------------------------- -->
+    <div class="border-0 p-3 border-amber-500">
       <!-- Mobile Minuit Cost Main Box Show/Close or Toggle btn -->
       <!-- <button class="bg-amber-500 text-white p-2 m-2 rounded" onclick="toggleCalculator()"> Mobile Minuit Cost </button> -->
-      <button class="text-white py-2 px-3 m-2 rounded-md bg-amber-500 hover:bg-black calculator-toggle-button" onclick="toggleCalculator()"> Mobile Minuit Cost open </button>
+      <button
+        class="text-white py-2 px-3 rounded-md bg-amber-500 hover:bg-black calculator-toggle-button"
+        onclick="toggleCalculator()"
+      >
+        Mobile Minuit Cost open
+      </button>
       <!-- Mobile Minuit Cost calculate & result area -->
-      <div class="calculator-box bg-amber-400 px-2 py-5" id="calculator">
-        <!-- Mobile Minuit Cost input field area -->
-        <div class="w-full flex flex-col md:flex-row gap-2 md:gap-6 mobile_minuit_cost_input_field">
-          <label class="flex flex-col w-full md:w-1/3" for="mobileMinuit">Minutes:
-            <input class="rounded focus:outline-none px-2 py-1" type="number" id="mobileMinuit" name="mobileMinuit" />
-          </label>
-          <label class="flex flex-col w-full md:w-1/3" for="mobileDay">Days:
-            <input class="rounded focus:outline-none px-2 py-1" type="number" id="mobileDay" name="mobileDay" />
-          </label>
-          <label class="flex flex-col w-full md:w-1/3" for="mobileTaka">Taka:
-            <input class="rounded focus:outline-none px-2 py-1" type="number" id="mobileTaka" name="mobileTaka" />
-          </label>
-        </div>
-        <!-- Mobile Minuit Cost input's value calculate btn -->
-        <div class="mobile_minuit_cost_calculate_btn flex justify-between">
-            <button class="bg-slate-900 hover:bg-slate-700 text-white py-2 px-4 my-5 rounded" onclick="calculateMobile()">Calculate</button>
-            <button class="bg-red-600 hover:bg-red-500 text-white py-2 px-4 my-5 rounded" onclick="resetMobile()">Reset</button>
-        </div>
-        <!-- Mobile Minuit Cost result area -->
-        <div class="mobile_minuit_cost_result_box flex justify-between">        
-            <div class="result-box" id="maxMobileResultBox">
-                <h2>High Cost</h2>
-                <p id="maxMobileResult"></p>
+      <div class="calculator-box" id="calculator">
+        <div
+          class="bg-amber-400 rounded-md px-2 py-5 mt-1 mb-8 flex flex-col md:flex-row justify-center gap-6"
+        >
+          <!-- Mobile Minuit Cost input field area -->
+          <div class="mobile_minuit_cost_input_field w-ful md:w-1/4">
+            <div class="w-full flex flex-col gap-2 md:gap-6">
+              <label class="flex flex-col w-full" for="mobileMinuit"
+                >Minutes:
+                <input
+                  class="rounded focus:outline-none px-2 py-1"
+                  type="number"
+                  id="mobileMinuit"
+                  name="mobileMinuit"
+                />
+              </label>
+              <!-- <label class="flex flex-col w-full md:w-1/3" for="mobileDay">Days:
+                              <input class="rounded focus:outline-none px-2 py-1" type="number" id="mobileDay" name="mobileDay" />
+                            </label> -->
+              <label class="flex flex-col w-full" for="mobileTaka"
+                >Taka:
+                <input
+                  class="rounded focus:outline-none px-2 py-1"
+                  type="number"
+                  id="mobileTaka"
+                  name="mobileTaka"
+                />
+              </label>
             </div>
-            <div class="result-box" id="minMobileResultBox">
-                <h2>Low Cost</h2>
-                <p id="minMobileResult"></p>
+            <!-- Mobile Minuit Cost input's value calculate btn -->
+            <div class="mobile_minuit_cost_calculate_btn flex justify-between">
+              <button
+                class="bg-slate-900 hover:bg-slate-700 text-white py-2 px-4 my-5 rounded"
+                onclick="calculateMobile()"
+              >
+                Calculate
+              </button>
+              <button
+                class="bg-red-600 hover:bg-red-500 text-white py-2 px-4 my-5 rounded"
+                onclick="resetMobile()"
+              >
+                Reset
+              </button>
             </div>
+          </div>
+          <!-- Mobile Minuit Cost result area -->
+          <div class="mobile_minuit_cost_result_box w-ful md:w-2/4 py-6">
+            <div class="flex justify-between gap-6">
+              <div class="result-box text-center" id="maxMobileResultBox">
+                <h2>প্রতি মিনিটের দাম সর্বোচ্চ পাওয়া যাচ্ছে</h2>
+                <p class="border-2 border-red-500" id="maxMobileResult"></p>
+              </div>
+              <div class="result-box text-center" id="minMobileResultBox">
+                <h2>প্রতি মিনিটের দাম সর্বনিম্ন পাওয়া যাচ্ছে</h2>
+                <p class="border-2 border-green-600" id="minMobileResult"></p>
+              </div>
+            </div>
+            <ul
+              class="inputed_all_result_list_box py-6"
+              id="mobileResults"
+            ></ul>
+          </div>
         </div>
-        <ul class="inputed_all_result_list_box py-6" id="mobileResults"></ul>
       </div>
-
     </div>
     <!-- Mobile Minuit cost area end  -->
 
-    <!-- Mobile Internet cost area start  -->
-    <div class="border-8 border-red-500  hidden">
-
-        <!-- Mobile Internet Cost Main Box Show/Close or Toggle btn -->
-        <!-- <button class="bg-red-500 text-white p-2 m-2 rounded" onclick="toggleCalculatorForInternetCost()" > Mobile Internet Cost </button> -->
-        <button class="text-white py-2 px-3 m-2 rounded-md bg-red-500 hover:bg-black  internet-cost-toggle-button" onclick="toggleCalculatorForInternetCost()"> Mobile Internet Cost open </button>
-        <!-- Mobile Internet Cost calculate & result area -->
-        <div class="internet-cost-box bg-red-500" id="internetCostCalculator">
-            <!-- Mobile Internet Cost input field area -->
-            <div class="mobile_internet_cost_input_field flex items-center">
-                <div class="border flex mr-8">
-                    <label for="internetAmount">Internet Amount:</label>
-                    <input type="number" id="internetAmount" name="internetAmount" />
-                    <div class="px-4" id="internetUnit">
-                        <label class="btn btn-primary"> <input type="radio" name="unit" id="GB_button" checked /> GB </label>
-                        <span class="px-1">Or</span>
-                        <label class="btn btn-primary"> <input type="radio" name="unit" id="MB_button" /> MB </label>
-                    </div>
+    <!-- Mobile Internet cost area start  ------------------------------------------- -->
+    <div class="border-0 p-3 border-red-500">
+      <!-- Mobile Internet Cost Main Box Show/Close or Toggle btn -->
+      <!-- <button class="bg-red-500 text-white p-2 m-2 rounded" onclick="toggleCalculatorForInternetCost()" > Mobile Internet Cost </button> -->
+      <button
+        class="text-white py-2 px-3 rounded-md bg-red-500 hover:bg-black internet-cost-toggle-button"
+        onclick="toggleCalculatorForInternetCost()"
+      >
+        Mobile Internet Cost open
+      </button>
+      <!-- Mobile Internet Cost calculate & result area -->
+      <div class="internet-cost-box" id="internetCostCalculator">
+        <div
+          class="bg-red-500 rounded-md px-2 py-5 mt-1 mb-8 flex flex-col md:flex-row justify-center gap-6"
+        >
+          <!-- Mobile Internet Cost input field area -->
+          <div class="mobile_internet_cost_input_field w-ful md:w-1/4">
+            <div class="w-full flex flex-col">
+              <div class="flex flex-col w-full">
+                <label class="flex flex-col w-full" for="internetAmount"
+                  >Internet Amount:
+                  <input
+                    class="rounded focus:outline-none px-2 py-1"
+                    type="number"
+                    id="internetAmount"
+                    name="internetAmount"
+                  />
+                </label>
+                <div class="flex justify-end mt-1 gap-6" id="internetUnit">
+                  <span class="px-1 text-xs">
+                    নেট এর রেজাল্ট MB এর হিসাবে দেখানো হয়েছে
+                  </span>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="unit" id="GB_button" checked /> GB
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="unit" id="MB_button" /> MB
+                  </label>
                 </div>
-                <label for="internetTaka">Taka:</label>
-                <input type="number" id="internetTaka" name="internetTaka" /><br /><br />
+              </div>
+              <label class="flex flex-col w-full" for="internetTaka"
+                >Taka:
+                <input
+                  class="rounded focus:outline-none px-2 py-1"
+                  type="number"
+                  id="internetTaka"
+                  name="internetTaka"
+                />
+              </label>
             </div>
             <!-- Mobile Internet Cost input's value calculate btn -->
-            <div class="mobile_internet_cost_calculate_btn">
-                <button class="text-white bg-black px-5 py-3 mx-3" onclick="calculateInternet()" > Calculate </button>
-                <button class="text-white bg-black px-5 py-3 mx-3" onclick="resetInternet()" > Reset </button>
+            <div
+              class="mobile_internet_cost_calculate_btn flex justify-between"
+            >
+              <button
+                class="bg-slate-900 hover:bg-slate-700 text-white py-2 px-4 my-5 rounded"
+                onclick="calculateInternet()"
+              >
+                Calculate
+              </button>
+              <button
+                class="bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-4 my-5 rounded"
+                onclick="resetInternet()"
+              >
+                Reset
+              </button>
             </div>
-            <!-- Mobile Internet Cost result area -->
-            <div class="mobile_internet_cost_result_box">
-                <!-- max result show area  -->
-                <div class="result-box" id="maxInternetResultBox">
-                    <h2>Maximum Result</h2>
-                    <p id="maxInternetResult"></p>
-                </div>
-                <!-- min result show area  -->
-                <div class="result-box" id="minInternetResultBox">
-                    <h2>Minimum Result</h2>
-                    <p id="minInternetResult"></p>
-                </div>
-                <!-- All imputed result show area  -->
-                <ul id="internetResults"></ul>
+          </div>
+
+          <!-- Mobile Internet Cost result area -->
+          <div class="mobile_internet_cost_result_box w-ful md:w-2/4 py-6">
+            <!-- max result show area  -->
+            <div class="flex justify-between gap-6">
+              <div class="result-box text-center" id="maxInternetResultBox">
+                <h2>প্রতি MB এর দাম সর্বোচ্চ পাওয়া যাচ্ছে</h2>
+                <p
+                  class="border-2 border-yellow-500"
+                  id="maxInternetResult"
+                ></p>
+              </div>
+              <!-- min result show area  -->
+              <div class="result-box text-center" id="minInternetResultBox">
+                <h2>প্রতি MB এর দাম সর্বনিম্ন পাওয়া যাচ্ছে</h2>
+                <p class="border-2 border-green-600" id="minInternetResult"></p>
+              </div>
             </div>
+            <!-- All imputed result show area  -->
+            <ul
+              class="inputed_all_result_list_box py-6"
+              id="internetResults"
+            ></ul>
+          </div>
         </div>
-        
+      </div>
     </div>
-   <!-- Mobile Internet cost area end  -->
+    <!-- Mobile Internet cost area end  -->
     <script src="script.js"></script>
   </body>
 </html>

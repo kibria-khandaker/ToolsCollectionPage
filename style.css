@@ -11,14 +11,23 @@
 
 /* Mobile company minutes & internet cost calculation Button Css */
 .calculator-box, .internet-cost-box {
-    /* display: none; */
+    display: none;
 }
 
 .result-box {
-    /* display: none; */
-    border: 1px solid #727272;
-    padding: 5px;
+    display: none;
+    border: 0px solid #727272;
+    padding: 0px;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 11px;
+}
+.calculator-box h2, .internet-cost-box h2{
+    color: #fff;
 }
 
+.calculator-box p, .internet-cost-box p{
+    padding: 0px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold; 
+}

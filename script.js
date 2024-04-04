@@ -1,7 +1,11 @@
 // script.js
 
 // Mobile Minuit Cost JS function code 1
-function mobileMinuteCalculate(minuit, day, taka) {
+// function mobileMinuteCalculate(minuit, day, taka) {
+//     var PackRate = taka / minuit;
+//     return PackRate.toFixed(3);
+// }
+function mobileMinuteCalculate(minuit, taka) {
     var PackRate = taka / minuit;
     return PackRate.toFixed(3);
 }
@@ -9,16 +13,21 @@ function mobileMinuteCalculate(minuit, day, taka) {
 // Mobile Minuit Cost JS function code 2 - it is impotent do no delete
 function calculateMobile() {
     var minuit = parseInt(document.getElementById("mobileMinuit").value);
-    var day = parseInt(document.getElementById("mobileDay").value);
+    // var day = parseInt(document.getElementById("mobileDay").value);
     var taka = parseInt(document.getElementById("mobileTaka").value);
 
     // Check if any input field is empty or contains NaN
-    if (isNaN(minuit) || isNaN(day) || isNaN(taka)) {
+    // if (isNaN(minuit) || isNaN(day) || isNaN(taka)) {
+    //     alert("Please enter valid values for all input fields.");
+    //     return;
+    // }
+    if (isNaN(minuit) || isNaN(taka)) {
         alert("Please enter valid values for all input fields.");
         return;
     }
 
-    var result = mobileMinuteCalculate(minuit, day, taka);
+    // var result = mobileMinuteCalculate(minuit, day, taka);
+    var result = mobileMinuteCalculate(minuit, taka);
     //  If you buy 3000 minutes at Tk 30, the cost per minute will be Tk 41
     var listItem = document.createElement("li");
     listItem.textContent = "(" + taka + ") টাকায় (" + minuit + ") মিনিট কিনলে, প্রতি মিনিটের দাম = " + result + " টাকা হবে";
@@ -127,7 +136,8 @@ function calculateInternet() {
 
     // Create a list item to display the result
     var listItem = document.createElement("li");
-    listItem.textContent = "Result: " + formattedResult + "/= taka";
+        listItem.textContent = "(" + taka + ") টাকায় (" + amount + ") MB কিনলে, প্রতি MB এর দাম = " + formattedResult + " টাকা হবে";
+    // listItem.textContent = "Result: " + formattedResult + "/= taka";
     listItem.classList.add("list-inside", "list-decimal"); // Add CSS class
     document.getElementById("internetResults").appendChild(listItem);
 
@@ -151,7 +161,7 @@ function calculateInternet() {
 // Mobile Minuit Cost DOM Related  
 function resetMobile() {
     document.getElementById("mobileMinuit").value = "";
-    document.getElementById("mobileDay").value = "";
+    // document.getElementById("mobileDay").value = "";
     document.getElementById("mobileTaka").value = "";
     document.getElementById("maxMobileResult").textContent = "";
     document.getElementById("minMobileResult").textContent = "";
