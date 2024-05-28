@@ -111,6 +111,19 @@
                     taskButton.className = 'bg-blue-400 text-sm inline-block px-2.5 py-1.5 ml-2 border rounded-md hover:bg-black text-white font-medium task_url_btn';
                     taskButton.textContent = 'Visit';
 
+                    taskButton.addEventListener('click', function(event) {
+                        // Prevent default behavior of the link
+                        event.preventDefault();
+
+                        // Check if the taskUrl is set to "#"
+                        if (task.taskUrl === '#') {
+                            alert('This Project is not completed yet, So, the link is unavailable.');
+                        } else {
+                            // Open the link in a new tab/window
+                            window.open(task.taskUrl, '_blank');
+                        }
+                    });
+
                     statusCell.appendChild(taskButton);
                     taskRow.appendChild(statusCell);
                     tasksContainer.appendChild(taskRow);
