@@ -4,36 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display JSON Data</title>
+    <style>
+        .task {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .task h2 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .task p {
+            margin: 5px 0;
+        }
+        .task-status {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>JSON Data</h1>
-    <pre id="json-data"></pre>
+    <h1>Task List</h1>
+    <div id="tasks"></div>
 
     <script>
-        // Function to fetch and display JSON data
         async function fetchAndDisplayJSON() {
             const url = 'https://raw.githubusercontent.com/kibria-khandaker/API-Data/main/myTaskCollectionPage.json';
             
             try {
-                // Fetch the JSON file from the provided URL
                 const response = await fetch(url);
-                
-                // Check if the response is ok (status code 200-299)
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
                 }
-                
-                // Parse the JSON data
                 const jsonData = await response.json();
-                
-                // Display the JSON data in the pre element
-                document.getElementById('json-data').textContent = JSON.stringify(jsonData, null, 2);
+                displayTasks(jsonData);
             } catch (error) {
                 console.error('Error fetching or displaying JSON data:', error);
             }
         }
 
-        // Call the function when the page loads
+        function displayTasks(tasks) {
+            const tasksContainer = document.getElementById('tasks');
+            tasksContainer.innerHTML = ''; // Clear any existing content
+
+            tasks.forEach(task => {
+                const taskElement = document.createElement('div');
+                taskElement.className = 'task';
+
+                const taskTitle = document.createElement('h2');
+                taskTitle.textContent = task.taskTitle;
+                taskElement.appendChild(taskTitle);
+
+                const taskDescription = document.createElement('p');
+                taskDescription.textContent = task.taskDescription;
+                taskElement.appendChild(taskDescription);
+
+                const taskStatus = document.createElement('p');
+                taskStatus.className = 'task-status';
+                taskStatus.textContent = 'Status: ' + task.taskStatus;
+                taskElement.appendChild(taskStatus);
+
+                const taskUrl = document.createElement('a');
+                taskUrl.href = task.taskUrl;
+                taskUrl.textContent = 'View Task';
+                taskElement.appendChild(taskUrl);
+
+                tasksContainer.appendChild(taskElement);
+            });
+        }
+
         window.onload = fetchAndDisplayJSON;
     </script>
 </body>
