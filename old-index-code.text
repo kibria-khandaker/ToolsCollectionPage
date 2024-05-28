@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Collection : Golam Kibria (a web developer)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+
+  </head>
+  <body>
+    <div class="py-12 px-0 md:px-10 ">
+
+      <!-- ====== Header Section Start -->
+      <div>
+        <h1 class="text-3xl flex justify-center text-green-400">
+          My Task Collection List
+          <span class="relative flex h-3 w-3">
+            <span
+              class="animate-ping absolute top-1 right-8 inline-flex h-full w-full rounded-full bg-red-500 opacity-80"
+            ></span>
+            <span
+              class="relative inline-flex top-1 right-8 rounded-full h-3 w-3 bg-red-500"
+            ></span>
+          </span>
+        </h1>
+        <p class="text-center text-green-500 pt-1 pb-8">Will complete all tasks serially day by day </p>
+      </div>
+      <!-- ====== Header Section Start -->
+      <!-- ====== Table Section Start -->
+      <div class="max-w-full px-4 overflow-x-auto">
+        <table class="w-full table-auto">
+          <thead>
+            <tr class="text-center bg-green-400">
+              <th
+                class="w-1/6 min-w-[160px] border-l border-transparent py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+              >
+                Title
+              </th>
+              <th
+                class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+              >
+                Description
+              </th>
+              <th
+                class="w-1/6 min-w-[160px] py-4 px-3 text-lg font-medium text-white lg:py-7 lg:px-4"
+              >
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <!-- single 1 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+              <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                My Youtube Video Player
+              </td>
+              <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+              </td>
+              <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                <a href="javascript:void(0)" class="bg-green-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                  Done
+                </a>
+              </td>
+            </tr>
+            <!-- single 1 wor end  -->
+            <!-- single 2 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    Simple BMI Calculator
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-green-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                    Done
+                    </a>
+                </td>
+                </tr>
+            <!-- single 2 wor end  -->
+            <!-- single 3 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    Income Remaining Calculator
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-green-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                    Done
+                    </a>
+                </td>
+                </tr>
+            <!-- single 3 wor end  -->
+            <!-- single 4 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    Website URL Scraping or collection automatically.
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-yellow-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                    Start
+                    </a>
+                </td>
+                </tr>
+            <!-- single 4 wor end  -->
+            <!-- single 5 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    A Common Calculator 
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa porro voluptatibus quo vel nisi aliquam officiis vero recusandae in ipsam!
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-red-500 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                        Not Start
+                    </a>
+                </td>
+                </tr>
+            <!-- single 5 wor end  -->
+            <!-- single 6 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                  Minutes / SMS / internet cost calculation
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                  আমরা যখন মোবাইল কোম্পানির ইন্টারনেট কিংবা মিনিটের বা এসএমএস এর কোন প্যাকেজ কিনি  তখন আমরা বুঝতে পারি না কোনটার দাম  কম বা বেশি হবে, এটা সহজে হিসাব করে বের করে এর কাজ  
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-green-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                      Done
+                    </a>
+                </td>
+                </tr>
+            <!-- single 6 wor end  -->
+            <!-- single 7 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+                <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                    Invoice or Quotation maker
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                    Here will a form and input option will available and after complete everything able to print or save as PDF file,
+                </td>
+                <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                    <a href="javascript:void(0)" class="bg-red-500 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                      Not Start
+                    </a>
+                </td>
+                </tr>
+            <!-- single 7 wor end  -->
+            <!-- single 8 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+              <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                  Class 1-5 math solve app 
+              </td>
+              <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                  Here will a form and input option will available and after complete everything able to print or save as PDF file,
+              </td>
+              <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                  <a href="javascript:void(0)" class="bg-red-500 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                    Not Start
+                  </a>
+              </td>
+            </tr>
+          <!-- single 8 wor end  -->
+            <!-- single 9 wor start  -->
+            <tr class="text-zinc-600  hover:text-green-500">
+              <td class="border border-[#E8E8E8] py-3 px-2 text-lg" >
+                  Age Calculator
+              </td>
+              <td class="border border-[#E8E8E8] py-3 px-2 text-sm" >
+                  if you can calculate your age input your date. or you want to calculate your age any particular date 
+              </td>
+              <td class="border border-[#E8E8E8] py-3 px-2 text-center" >
+                <a href="javascript:void(0)" class="bg-green-400 text-sm inline-block px-2.5 py-1.5 border rounded-md hover:bg-black text-white font-medium">
+                  Done
+                </a>
+            </td>
+            </tr>
+          <!-- single 9 wor end  -->
+          </tbody>
+        </table>
+      </div>
+      <!-- ====== Table Section End -->
+
+    </div>
+  </body>
+</html>
