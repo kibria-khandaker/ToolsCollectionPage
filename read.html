@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Display JSON Data</title>
 </head>
 <body>
-    <h1>Read</h1>
+    <h1>JSON Data</h1>
+    <pre id="json-data"></pre>
+
+    <script>
+        // Function to fetch and display JSON data
+        async function fetchAndDisplayJSON() {
+            const url = 'https://raw.githubusercontent.com/kibria-khandaker/API-Data/main/myTaskCollectionPage.json';
+            
+            try {
+                // Fetch the JSON file from the provided URL
+                const response = await fetch(url);
+                
+                // Check if the response is ok (status code 200-299)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                
+                // Parse the JSON data
+                const jsonData = await response.json();
+                
+                // Display the JSON data in the pre element
+                document.getElementById('json-data').textContent = JSON.stringify(jsonData, null, 2);
+            } catch (error) {
+                console.error('Error fetching or displaying JSON data:', error);
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = fetchAndDisplayJSON;
+    </script>
 </body>
 </html>
