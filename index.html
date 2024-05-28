@@ -71,7 +71,7 @@
                 const tasksContainer = document.getElementById('tasks');
                 tasksContainer.innerHTML = ''; // Clear any existing content
 
-                tasks.forEach(task => {
+                tasks.reverse().forEach(task => {
                     const taskRow = document.createElement('tr');
                     taskRow.className = 'text-zinc-600 hover:text-green-500 task';
 
@@ -99,7 +99,7 @@
                         statusLink.classList.add('bg-red-500');
                         statusLink.textContent = 'Not Start';
                     } else if (task.taskStatus === 'started') {
-                        statusLink.classList.add('bg-yellow-500', 'text-gray-100');
+                        statusLink.classList.add('bg-yellow-400', 'text-black', 'hover:text-white');
                         statusLink.textContent = 'Started';
                     }
 
@@ -108,7 +108,7 @@
 
                     const taskButton = document.createElement('a');
                     taskButton.href = task.taskUrl;
-                    taskButton.className = 'bg-blue-400 text-sm inline-block px-2.5 py-1.5 ml-2 border rounded-md hover:bg-black text-white font-medium task_url_btn';
+                    taskButton.className = 'bg-gray-100 text-sm text-black inline-block px-2.5 py-1.5 ml-2 border rounded-md hover:bg-black hover:text-white font-medium task_url_btn';
                     taskButton.textContent = 'Visit';
 
                     taskButton.addEventListener('click', function(event) {
